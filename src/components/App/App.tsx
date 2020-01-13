@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import { ThemeProvider } from 'styled-components';
 import { ThemeInterface, createTheme } from 'src/themes';
 import { AppMode } from './constants';
+import { moodBoardImages } from '../../constants';
 
 interface AppState {
     appMode: AppMode;
@@ -30,9 +31,9 @@ export class App extends Component<{},AppState> {
 
       return (
         <ThemeProvider theme={theme}>
-          <StyledApp >
+          <StyledApp>
             <Header toggleDarkMode={this.toggleDarkMode}/>
-            <MoodBoard />
+            <MoodBoard images={moodBoardImages}/>
           </StyledApp>
         </ThemeProvider>
       );

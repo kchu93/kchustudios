@@ -1,6 +1,6 @@
 import { AppMode } from '../components/App/constants';
-import { DarkModeColors } from './themes/darkMode/darkMode';
-import { LightModeColors } from './themes/lightMode/lightMode';
+import { DarkModeColors } from './modes/darkMode/darkMode';
+import { LightModeColors } from './modes/lightMode/lightMode';
 
 export interface Colors {
     background: string;
