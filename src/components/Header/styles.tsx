@@ -9,35 +9,36 @@ export const StyledHeader = styled.div`
     width: 100%;
     padding: 24px;
     box-sizing: border-box;
-
-    ${({ theme }) => `
-        ${theme.breakpoints.mobile} {
-            height: 3.75rem;
-        }
-    `}
-
-    ${({ theme }) => `
-        ${theme.breakpoints.tablet} {
-            height: 4.75rem;
-        }
-    `}
-
-    ${({ theme }) => `
-        ${theme.breakpoints.desktop} {
-            height: 4.75rem;
-        }
-    `}
 `;
 
 export const HeaderLogo = styled.div`
     font-size: ${({ theme }) => theme.typography.fontSize.medium};
     color: ${({ theme }) => theme.colors.primary};
+    cursor: pointer;
+
+    :hover {
+        color: ${({ theme }) => theme.colors.secondary};
+    }
 `;
 
-export const ModeToggle = styled.div`
+export const HeaderIcon = styled.div`
     font-size: ${({ theme }) => theme.typography.fontSize.medium};
     color: ${({ theme }) => theme.colors.primary};
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+
     svg {
         fill: ${({ theme }) => theme.colors.primary};
+
+        :hover {
+            fill: ${({ theme }) => theme.colors.secondary};
+        }
     }
-`
+`;
+
+export const MenuContainer = styled.div`
+    display: flex;
+`;

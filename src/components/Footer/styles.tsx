@@ -24,9 +24,9 @@ export const Icon = styled.a`
 
     svg {
         fill: ${({ theme }) => theme.colors.primary};
-    }
 
-    :hover > svg {
-        fill: ${({ theme }) => theme.colors.secondary};
+        :hover {
+            fill: ${({ theme }) => theme.colors.secondary};
+        }
     }
 `;

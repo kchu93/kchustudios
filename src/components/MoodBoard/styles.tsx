@@ -6,7 +6,7 @@ export const MoodBoardContainer = styled.div`
     display: flex;
     justify-content: center;
     padding: 24px;
-`;  
+`;
 
 export const ImageGrid = styled.div`
     display: grid;
@@ -20,7 +20,7 @@ export const ImageGrid = styled.div`
 
     ${({ theme }) => `
         ${theme.breakpoints.mobile} {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
         }
     `}
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ImageContainer = styled.div``
 
 export const StyledImage = styled.img`
-    background: blue;
     display: flex;
     justify-content: center;
     object-fit: cover;
