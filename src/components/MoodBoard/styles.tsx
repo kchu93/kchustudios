@@ -3,32 +3,36 @@ import styled from 'styled-components';
 export const MoodBoardContainer = styled.div`
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.onBackground};
-    width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
     padding: 24px;
-    box-sizing: border-box;
 `;  
 
 export const ImageGrid = styled.div`
     display: grid;
+    height: 100%;
+    width: 100%;
     grid-gap: 10px;
     overflow-y: scroll;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
     ${({ theme }) => `
         ${theme.breakpoints.mobile} {
-            grid-template-columns: repeat(2, 1fr);;
+            grid-template-columns: repeat(2, 1fr);
         }
     `}
 
     ${({ theme }) => `
-        ${theme.breakpoints.tablet} {
-            grid-template-columns: repeat(3, 1fr);;
+        ${theme.breakpoints.tablet} {   
+            grid-template-columns: repeat(3, 1fr);
         }
     `}
 
     ${({ theme }) => `
         ${theme.breakpoints.desktop} {
-            grid-template-columns: repeat(4, 1fr);;
+            grid-template-columns: repeat(4, 1fr);
         }
     `}
 `;

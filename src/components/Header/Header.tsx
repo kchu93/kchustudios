@@ -11,7 +11,7 @@ export class Header extends Component<HeaderProps, {}> {
   render() {
     return (
         <StyledHeader>
-          <HeaderLogo>KCHU</HeaderLogo>
+          <HeaderLogo>KCHU STUDIOS</HeaderLogo>
           <ModeToggle onClick={this.props.toggleDarkMode}>{modeToggleIcon}</ModeToggle>
         </StyledHeader>
     );

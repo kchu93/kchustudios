@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { ThemeInterface, createTheme } from 'src/themes';
 import { AppMode } from './constants';
 import { moodBoardImages } from '../../constants';
+import Footer from '../Footer/Footer';
 
 interface AppState {
     appMode: AppMode;
@@ -34,6 +35,7 @@ export class App extends Component<{},AppState> {
           <StyledApp>
             <Header toggleDarkMode={this.toggleDarkMode}/>
             <MoodBoard images={moodBoardImages}/>
+            <Footer />
           </StyledApp>
         </ThemeProvider>
       );
