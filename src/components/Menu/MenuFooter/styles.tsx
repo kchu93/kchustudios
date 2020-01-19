@@ -57,6 +57,11 @@ export const StyledIcon = styled.div`
     justify-content: center;
     align-items: center;
     padding: .25rem;
+    cursor: pointer;
+    
+    :hover > svg > path {
+        fill: ${({ theme }) => theme.colors.primary};
+    }
 
     svg > path {
         fill: ${({ theme }) => theme.colors.onBackground};

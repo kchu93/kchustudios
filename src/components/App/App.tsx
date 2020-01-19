@@ -19,6 +19,22 @@ export class App extends Component<{},AppState> {
         menuOpen: false,
     };
 
+    componentDidMount() {
+        console.log('hello world');
+        document.addEventListener('keydown', this._handleKeydown);
+    }
+
+    componentWillMount() {
+        document.removeEventListener('keydown', this._handleKeydown);
+    }
+
+    _handleKeydown = (event: KeyboardEvent) => {
+        const { menuOpen } = this.state;
+        if (event.key === 'Escape' && menuOpen) {
+            this.toggleMenu();
+        }
+    };
+
     toggleDarkMode = () => {
         this.setState((state: AppState) => {
             if (state.appMode === AppMode.DARK) {
@@ -40,7 +56,7 @@ export class App extends Component<{},AppState> {
         return (
             <ThemeProvider theme={theme}>
                 <StyledApp>
-                    <Menu menuOpen={menuOpen}/>
+                    <Menu toggleMenu={this.toggleMenu} menuOpen={menuOpen}/>
                     <Header
                         appMode={appMode}
                         menuOpen={menuOpen}

@@ -12,6 +12,7 @@ import MenuFooter from './MenuFooter/MenuFooter';
 
 interface MenuProps {
     menuOpen: boolean;
+    toggleMenu(): void;
 }
 
 export class Menu extends Component<MenuProps> {
