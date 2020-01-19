@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 
-import { StyledHeader, HeaderLogo, HeaderIcon, MenuContainer } from './styles';
-import { fetchModeIcon, menuIcon } from '../../icons/icons';
+import { StyledHeader, HeaderLogo , Hamburger} from './styles';
 import { AppMode } from '../App/constants';
 
 interface HeaderProps {
     appMode: AppMode;
+    menuOpen: boolean;
     toggleDarkMode(): void;
-    showMenu(): void;
+    toggleMenu(): void;
 }
 
 export class Header extends Component<HeaderProps, {}> {
     render() {
-        const modeIcon = fetchModeIcon(this.props.appMode);
+        const { menuOpen, toggleMenu } = this.props;
 
         return (
             <StyledHeader>
-                <HeaderLogo>KCHU STUDIOS</HeaderLogo>
-
-                <MenuContainer>
-                    <HeaderIcon onClick={this.props.toggleDarkMode}>{modeIcon}</HeaderIcon>
-                    <HeaderIcon onClick={this.props.showMenu}>{menuIcon}</HeaderIcon>
-                </MenuContainer>
+                <Hamburger menuOpen={menuOpen} toggleMenu={toggleMenu}/>
+                <HeaderLogo menuOpen={menuOpen}>KCHU STUDIOS</HeaderLogo>
             </StyledHeader>
         );
     }

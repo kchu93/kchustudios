@@ -17,6 +17,7 @@ export interface FontSize {
   large: string;
   xLarge: string;
   xxLarge: string;
+  xxxLarge: string;
 }
 
 export interface Typography {
@@ -33,7 +34,8 @@ export const createTypography = (): Typography => ({
     medium: rem(20),
     large: rem(24),
     xLarge: rem(32),
-    xxLarge: rem(48)
+    xxLarge: rem(40),
+    xxxLarge: rem(48)
   },
   fontWeight: {
     extraLight: 100,

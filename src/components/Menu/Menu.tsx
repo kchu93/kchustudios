@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
 
 import {
-    IconContainer,
     MenuContainer,
-    MenuIcon,
     MenuItem,
     StyledMenu,
+    StyledNav,
+    MenuContentContainer,
+    HomeItem,
 } from './styles';
-import { menuItems } from '../../constants';
-import { closeIcon } from "../../icons/icons";
+import MenuFooter from './MenuFooter/MenuFooter';
 
 interface MenuProps {
-    hideMenu(): void;
+    menuOpen: boolean;
 }
 
 export class Menu extends Component<MenuProps> {
     render() {
+        const { menuOpen } = this.props;
+
         return (
-            <MenuContainer>
-                <IconContainer>
-                    <MenuIcon onClick={this.props.hideMenu}>{closeIcon}</MenuIcon>
-                </IconContainer>
-                <StyledMenu>
-                    {menuItems.map(category => {
-                        return (
-                            <MenuItem>{category}</MenuItem>
-                        )
-                    })}
+            <MenuContainer menuOpen={menuOpen}>
+                <StyledMenu menuOpen={menuOpen}>
+                    <MenuContentContainer>
+                        <StyledNav>
+                            <HomeItem>Home</HomeItem>
+                            <MenuItem>Photography</MenuItem>
+                            <MenuItem>Mood Board</MenuItem>
+                            <MenuItem>Audio</MenuItem>
+                            <MenuItem>About</MenuItem>
+                        </StyledNav>
+
+                        <MenuFooter menuOpen={menuOpen}/>
+                    </MenuContentContainer>
                 </StyledMenu>
             </MenuContainer>
         )

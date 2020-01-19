@@ -8,6 +8,7 @@ export const FooterContainer = styled.div`
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
+    grid-area: 3;
 `;
 
 export const IconContainer = styled.div`

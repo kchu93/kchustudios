@@ -5,7 +5,21 @@ export const MoodBoardContainer = styled.div`
     color: ${({ theme }) => theme.colors.onBackground};
     display: flex;
     justify-content: center;
-    padding: 24px;
+    grid-area: 2;
+    
+    ${({ theme }) => `
+        ${theme.breakpoints.mobile} {
+            padding: 6rem 1.5rem 1.5rem 1.5rem;
+        }
+        
+        ${theme.breakpoints.tablet} {
+            padding: 6rem 2.5rem 2.5rem 2.5rem;
+        }
+        
+        ${theme.breakpoints.desktop} {
+            padding: 6rem 2.5rem 2.5rem 2.5rem;
+        }
+    `}
 `;
 
 export const ImageGrid = styled.div`
@@ -14,6 +28,7 @@ export const ImageGrid = styled.div`
     width: 100%;
     grid-gap: 10px;
     overflow-y: scroll;
+
     ::-webkit-scrollbar {
         display: none;
     }
@@ -22,15 +37,11 @@ export const ImageGrid = styled.div`
         ${theme.breakpoints.mobile} {
             grid-template-columns: repeat(1, 1fr);
         }
-    `}
 
-    ${({ theme }) => `
         ${theme.breakpoints.tablet} {   
             grid-template-columns: repeat(3, 1fr);
         }
-    `}
-
-    ${({ theme }) => `
+        
         ${theme.breakpoints.desktop} {
             grid-template-columns: repeat(4, 1fr);
         }
