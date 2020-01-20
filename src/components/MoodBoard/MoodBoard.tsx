@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
-import { MoodBoardContainer, ImageGrid } from './styles';
 
 import Image from '../Image/Image';
+import {breakPointColumns, MoodBoardContainer, StyledMasonry} from './styles';
 
 interface MoodBoardProps {
-  images: string[];
+    images: string[];
+    menuOpen: boolean;
 }
 
 export class MoodBoard extends Component<MoodBoardProps> {
-  render() {
-    return (
-      <MoodBoardContainer>
-        <ImageGrid>
-            {this.props.images.map((image, index) => {
-                return (
-                  <Image
-                    key={index}
-                    imageUrl={image}
-                  />
-                )
-            })}
-        </ImageGrid>
-      </MoodBoardContainer>
-    );
-  }
+    render() {
+        return (
+            <MoodBoardContainer menuOpen={this.props.menuOpen}>
+                <StyledMasonry
+                    breakpointCols={breakPointColumns}
+                    className="masonryGrid"
+                    columnClassName="masonryColumn"
+                >
+                    {this.props.images.map((image, index) => {
+                        return (
+                            <Image
+                                key={index}
+                                imageUrl={image}
+                            />
+                        )
+                    })}
+                </StyledMasonry>
+            </MoodBoardContainer>
+        );
+    }
 }
 
 export default MoodBoard;

@@ -1,48 +1,43 @@
-import React, {FunctionComponent} from 'react'
+import React, { Component } from 'react'
 import {
-    IconContainer,
     MenuFooterContainer,
-    SeasonContainer,
-    StyledIcon,
-    StyledSeasonLabel,
-    StyledThemeLabel,
-    ThemeContainer,
+    ContentContainer,
 } from './styles';
 
-import {fallIcon, springIcon, summerIcon, winterIcon,} from '../../../icons/icons';
-import { AppMode } from "../../App/constants";
+import { AppMode } from '../../App/constants';
+import MenuSeasons from './MenuSeasons';
+import MenuThemeMode from "./MenuThemeMode";
+import { Seasons } from '../../../themes/seasons/seasons';
 
 interface MenuFooterProps {
+    appMode: AppMode;
     menuOpen: boolean;
+    currentSeason: Seasons;
+    toggleDarkMode(): void;
+    updateSeason(season: Seasons): void;
 }
 
-const MenuFooter: FunctionComponent<MenuFooterProps> = props => {
-    const { menuOpen } = props;
+export class MenuFooter extends Component<MenuFooterProps> {
+    render() {
+        const { appMode, currentSeason, menuOpen, toggleDarkMode, updateSeason } = this.props;
 
-    return (
-        <MenuFooterContainer menuOpen={menuOpen}>
-            <SeasonContainer>
-                <StyledSeasonLabel>Season</StyledSeasonLabel>
-
-                <IconContainer>
-                    <StyledIcon>{winterIcon}</StyledIcon>
-                    <StyledIcon>{springIcon}</StyledIcon>
-                    <StyledIcon>{summerIcon}</StyledIcon>
-                    <StyledIcon>{fallIcon}</StyledIcon>
-                </IconContainer>
-            </SeasonContainer>
-
-            <ThemeContainer>
-                {/*<StyledThemeLabel appMode={AppMode.LIGHT}>Daylight</StyledThemeLabel>*/}
-                <StyledThemeLabel appMode={AppMode.DARK}>Midnight</StyledThemeLabel>
-            </ThemeContainer>
-
-            {/*<SocialContainer>*/}
-                {/*<StyledSocialIcon>{instagramIcon}</StyledSocialIcon>*/}
-                {/*<StyledSocialIcon>{twitterIcon}</StyledSocialIcon>*/}
-            {/*</SocialContainer>*/}
-        </MenuFooterContainer>
-    )
-};
+        return (
+            <MenuFooterContainer menuOpen={menuOpen}>
+                <ContentContainer menuOpen={menuOpen}>
+                    <MenuSeasons
+                        currentSeason={currentSeason}
+                        updateSeason={updateSeason}
+                        menuOpen={menuOpen}
+                    />
+                    <MenuThemeMode
+                        appMode={appMode}
+                        menuOpen={menuOpen}
+                        toggleDarkMode={toggleDarkMode}
+                    />
+                </ContentContainer>
+            </MenuFooterContainer>
+        )
+    }
+}
 
 export default MenuFooter;

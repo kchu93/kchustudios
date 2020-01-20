@@ -1,6 +1,17 @@
 import { rem } from "polished";
 
-export type FontFamily = string;
+export interface FontFamily {
+  serif: string;
+  sans: string;
+}
+
+export interface LetterSpacing {
+  normal: string;
+  small: string;
+  medium: string;
+  large: string;
+  xLarge: string;
+}
 
 export interface FontWeight {
   extraLight: number;
@@ -11,6 +22,7 @@ export interface FontWeight {
 }
 
 export interface FontSize {
+  xxSmall: string;
   xSmall: string;
   small: string;
   medium: string;
@@ -24,11 +36,16 @@ export interface Typography {
   fontFamily: FontFamily;
   fontSize: FontSize;
   fontWeight: FontWeight;
+  letterSpacing: LetterSpacing;
 }
 
 export const createTypography = (): Typography => ({
-  fontFamily: '"proxima-nova", "Helvetica Neue", Arial, sans-serif',
+  fontFamily: {
+    sans: "'proxima-nova', 'Helvetica Neue', Arial, sans",
+    serif: "'Merriweather', 'Helvetica Neue', Arial, sans"
+  },
   fontSize: {
+    xxSmall: rem(10),
     xSmall: rem(14),
     small: rem(16),
     medium: rem(20),
@@ -43,5 +60,12 @@ export const createTypography = (): Typography => ({
     regular: 400,
     semiBold: 600,
     bold: 800
+  },
+  letterSpacing: {
+    normal: "normal",
+    small: rem(1),
+    medium: rem(2),
+    large: rem(3),
+    xLarge: rem(4)
   }
 });

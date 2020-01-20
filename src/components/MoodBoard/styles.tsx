@@ -1,26 +1,48 @@
 import styled from 'styled-components';
+import Masonry from 'react-masonry-css';
 
-export const MoodBoardContainer = styled.div`
+interface MoodBoardInterface {
+    menuOpen?: boolean;
+}
+
+export const MoodBoardContainer = styled.div<MoodBoardInterface>`
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.onBackground};
     display: flex;
     justify-content: center;
-    grid-area: 2;
     
     ${({ theme }) => `
         ${theme.breakpoints.mobile} {
-            padding: 6rem 1.5rem 1.5rem 1.5rem;
+            padding: 0 1.5rem;
         }
         
         ${theme.breakpoints.tablet} {
-            padding: 6rem 2.5rem 2.5rem 2.5rem;
+            padding: 0 2.5rem;
         }
         
         ${theme.breakpoints.desktop} {
-            padding: 6rem 2.5rem 2.5rem 2.5rem;
+            padding: 0 3rem;
         }
     `}
 `;
+
+export const StyledMasonry = styled(Masonry)`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    transition: ${({ theme }) => `all ${theme.transitions.fadeAll}`};
+    
+    .masonryColumn:not(:first-child)  {
+        margin-left: 30px;
+    }
+`;
+
+export const breakPointColumns = {
+    default: 4,
+    1025: 3,
+    720: 1,
+};
 
 export const ImageGrid = styled.div`
     display: grid;

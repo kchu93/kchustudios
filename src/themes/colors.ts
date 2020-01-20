@@ -1,6 +1,11 @@
 import { AppMode } from "../components/App/constants";
-import { DarkModeColors } from "./modes/darkMode/darkMode";
-import { LightModeColors } from "./modes/lightMode/lightMode";
+import {
+  fallColors,
+  Seasons,
+  springColors,
+  summerColors,
+  winterColors
+} from "./seasons/seasons";
 
 export interface Colors {
   background: string;
@@ -16,13 +21,23 @@ export interface Colors {
   onError: string;
 }
 
-export const fetchColors = (mode: AppMode): Colors => {
-  switch (mode) {
-    case AppMode.DARK:
-      return DarkModeColors;
-    case AppMode.LIGHT:
-      return LightModeColors;
+export const fetchSeasonColors = (season: Seasons, mode: AppMode): any => {
+  switch (season) {
+    case Seasons.FALL:
+      return mode === AppMode.DARK ? fallColors.darkMode : fallColors.lightMode;
+    case Seasons.SPRING:
+      return mode === AppMode.DARK
+        ? springColors.darkMode
+        : springColors.lightMode;
+    case Seasons.SUMMER:
+      return mode === AppMode.DARK
+        ? summerColors.darkMode
+        : summerColors.lightMode;
+    case Seasons.WINTER:
+      return mode === AppMode.DARK
+        ? winterColors.darkMode
+        : winterColors.lightMode;
     default:
-      return DarkModeColors;
+      return fallColors.darkMode;
   }
 };

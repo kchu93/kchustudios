@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import { FooterContainer, IconContainer, Icon } from './styles';
 
-import { instagramUrl, twitterUrl } from '../../constants';
-import { instagramIcon, twitterIcon } from '../../icons/icons';
+import { instagramUrl, twitterUrl } from '../../utils/constants/imageConstants';
+import { instagramIcon, twitterIcon } from '../../utils/icons';
 
 export class Footer extends Component {
   render() {

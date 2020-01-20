@@ -8,4 +8,5 @@ export const StyledImage = styled.img`
     object-fit: cover;
     width: 100%;
     height: ${({ height }) => height};
+    padding: .5rem 0;
 `;

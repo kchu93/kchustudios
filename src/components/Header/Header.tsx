@@ -15,8 +15,8 @@ export class Header extends Component<HeaderProps, {}> {
         const { menuOpen, toggleMenu } = this.props;
 
         return (
-            <StyledHeader>
-                <Hamburger menuOpen={menuOpen} toggleMenu={toggleMenu}/>
+            <StyledHeader menuOpen={menuOpen}>
+                <Hamburger menuOpen={menuOpen} toggleMenu={toggleMenu} />
                 <HeaderLogo menuOpen={menuOpen}>KCHU STUDIOS</HeaderLogo>
             </StyledHeader>
         );

@@ -1,26 +1,41 @@
 import React, { Component } from 'react';
 import { StyledApp } from './styles';
-import MoodBoard from '../MoodBoard/MoodBoard';
 import Header from '../Header/Header';
 import { ThemeProvider } from 'styled-components';
-import { ThemeInterface, createTheme } from 'src/themes';
-import { AppMode } from './constants';
-import { moodBoardImages } from '../../constants';
+import { createTheme, ThemeInterface } from 'src/themes';
+import {AppMode} from './constants';
 import Menu from '../Menu/Menu';
+import { Seasons } from '../../themes/seasons/seasons';
+import Content from '../Content/Content';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { Store } from 'redux';
+import { State } from '../../reducers/reducers';
+import {connect} from 'react-redux';
+
+interface AppProps extends RouteComponentProps<{}>{
+    store: Store<State>;
+    appMode: AppMode;
+    season: Seasons;
+}
 
 interface AppState {
     appMode: AppMode;
     menuOpen: boolean;
+    season: Seasons;
 }
 
-export class App extends Component<{},AppState> {
+export class App extends Component<AppProps,AppState> {
     readonly state: AppState = {
         appMode: AppMode.DARK,
         menuOpen: false,
+        season: Seasons.FALL,
     };
 
     componentDidMount() {
-        console.log('hello world');
+        const { appMode, season } = this.props;
+        if (this.props) {
+            this.setState({ appMode, season });
+        }
         document.addEventListener('keydown', this._handleKeydown);
     }
 
@@ -33,6 +48,10 @@ export class App extends Component<{},AppState> {
         if (event.key === 'Escape' && menuOpen) {
             this.toggleMenu();
         }
+    };
+
+    updateSeason = (season: Seasons) => {
+        this.setState({ season });
     };
 
     toggleDarkMode = () => {
@@ -50,24 +69,36 @@ export class App extends Component<{},AppState> {
     };
 
     render() {
-        const { appMode, menuOpen } = this.state;
-        const theme: ThemeInterface = createTheme(appMode);
+        const { appMode, menuOpen, season } = this.state;
+        const theme: ThemeInterface = createTheme(appMode, season);
 
         return (
             <ThemeProvider theme={theme}>
                 <StyledApp>
-                    <Menu toggleMenu={this.toggleMenu} menuOpen={menuOpen}/>
+                    <Menu
+                        appMode={appMode}
+                        toggleMenu={this.toggleMenu}
+                        toggleDarkMode={this.toggleDarkMode}
+                        menuOpen={menuOpen}
+                        currentSeason={season}
+                        updateSeason={this.updateSeason}
+                    />
                     <Header
                         appMode={appMode}
                         menuOpen={menuOpen}
                         toggleDarkMode={this.toggleDarkMode}
                         toggleMenu={this.toggleMenu}
                     />
-                    <MoodBoard images={moodBoardImages}/>
+                    <Content menuOpen={menuOpen} path="/mood-board" />
                 </StyledApp>
             </ThemeProvider>
         );
     }
 }
 
-export default App;
+export const mapStateToProps = ({ theme }: State) => ({
+    appMode: theme.appMode,
+    season: theme.season
+});
+
+export default withRouter(connect(mapStateToProps)(App));

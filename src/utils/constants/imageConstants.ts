@@ -17,10 +17,3 @@ export const moodBoardImages: StringArrayType = [
   "https://cdn.shopify.com/s/files/1/0302/7829/files/42_500x.jpg?v=1574606829",
   "https://cdn.shopify.com/s/files/1/0302/7829/files/44_500x.jpg?v=1574606722"
 ];
-
-export const menuItems: StringArrayType = [
-  "Home",
-  "Projects",
-  "Sounds",
-  "About"
-];

@@ -2,36 +2,41 @@ import React, { Component } from 'react';
 
 import {
     MenuContainer,
-    MenuItem,
     StyledMenu,
-    StyledNav,
     MenuContentContainer,
-    HomeItem,
+    NavigationMenu,
 } from './styles';
 import MenuFooter from './MenuFooter/MenuFooter';
+import { AppMode } from '../App/constants';
+import { menuItems } from '../../utils/constants/menuConstants';
+import { Seasons } from '../../themes/seasons/seasons';
 
 interface MenuProps {
+    appMode: AppMode;
+    currentSeason: Seasons;
     menuOpen: boolean;
     toggleMenu(): void;
+    toggleDarkMode(): void;
+    updateSeason(season: Seasons): void;
 }
 
 export class Menu extends Component<MenuProps> {
     render() {
-        const { menuOpen } = this.props;
+        const { appMode, currentSeason, menuOpen, toggleDarkMode, updateSeason } = this.props;
 
         return (
             <MenuContainer menuOpen={menuOpen}>
                 <StyledMenu menuOpen={menuOpen}>
                     <MenuContentContainer>
-                        <StyledNav>
-                            <HomeItem>Home</HomeItem>
-                            <MenuItem>Photography</MenuItem>
-                            <MenuItem>Mood Board</MenuItem>
-                            <MenuItem>Audio</MenuItem>
-                            <MenuItem>About</MenuItem>
-                        </StyledNav>
+                        {NavigationMenu(menuItems)}
 
-                        <MenuFooter menuOpen={menuOpen}/>
+                        <MenuFooter
+                            appMode={appMode}
+                            menuOpen={menuOpen}
+                            currentSeason={currentSeason}
+                            updateSeason={updateSeason}
+                            toggleDarkMode={toggleDarkMode}
+                        />
                     </MenuContentContainer>
                 </StyledMenu>
             </MenuContainer>
