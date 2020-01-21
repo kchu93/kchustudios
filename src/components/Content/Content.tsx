@@ -19,7 +19,7 @@ export class Content extends Component<ContentProps> {
         return (
             <ContentContainer menuOpen={menuOpen}>
                 <Switch>
-                    <Route path="/mood-board">
+                    <Route path="/mood">
                         <MoodBoard menuOpen={menuOpen} images={moodBoardImages}/>
                     </Route>
                 </Switch>

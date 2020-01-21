@@ -47,7 +47,13 @@ export class Menu extends Component<MenuProps> {
                 <StyledMenu menuOpen={menuOpen}>
                     <MenuContentContainer>
                         <StyledNav>
-                            <HomeItem to="/" onClick={() => this.handleRedirect('/')}>Home</HomeItem>
+                            <HomeItem
+                                to="/"
+                                onClick={() => this.handleRedirect('/')}
+                            >
+                                Home
+                            </HomeItem>
+
                             {menuItems.map((menuItem: MenuItemInterface, index: number) => {
                                 const { path, title } = menuItem;
                                 return (

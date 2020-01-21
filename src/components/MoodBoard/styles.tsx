@@ -9,7 +9,9 @@ export const MoodBoardContainer = styled.div<MoodBoardInterface>`
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.onBackground};
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     
     ${({ theme }) => `
         ${theme.breakpoints.mobile} {
@@ -43,29 +45,3 @@ export const breakPointColumns = {
     1025: 3,
     720: 1,
 };
-
-export const ImageGrid = styled.div`
-    display: grid;
-    height: 100%;
-    width: 100%;
-    grid-gap: 10px;
-    overflow-y: scroll;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-    ${({ theme }) => `
-        ${theme.breakpoints.mobile} {
-            grid-template-columns: repeat(1, 1fr);
-        }
-
-        ${theme.breakpoints.tablet} {   
-            grid-template-columns: repeat(3, 1fr);
-        }
-        
-        ${theme.breakpoints.desktop} {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    `}
-`;

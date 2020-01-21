@@ -16,7 +16,7 @@ export const menuItems: MenuItemInterface[] = [
     },
     {
         title: "Mood Board",
-        path: "/mood-board"
+        path: "/mood"
     },
     {
         title: 'Journal',
