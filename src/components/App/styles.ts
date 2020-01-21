@@ -13,11 +13,11 @@ export const StyledApp = styled.div`
         }
 
         ${theme.breakpoints.mobile} {
-            grid-template-rows: 72px 100%;
+            grid-template-rows: 72px 1fr;
         }
 
         ${theme.breakpoints.mobile} {
-            grid-template-rows: 88px 100%;
+            grid-template-rows: 88px 1fr;
         }
     `}
 `;

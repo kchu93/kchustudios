@@ -10,12 +10,13 @@ import Content from '../Content/Content';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Store } from 'redux';
 import { State } from '../../reducers/reducers';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 interface AppProps extends RouteComponentProps<{}>{
     store: Store<State>;
     appMode: AppMode;
     season: Seasons;
+    currentPath: string;
 }
 
 interface AppState {
@@ -42,6 +43,15 @@ export class App extends Component<AppProps,AppState> {
     componentWillMount() {
         document.removeEventListener('keydown', this._handleKeydown);
     }
+
+    componentDidUpdate(prevProps: AppProps) {
+        const { currentPath } = this.props;
+        const { currentPath: prevPath } = prevProps;
+
+        if (currentPath !== prevPath) {
+            this.setState({ menuOpen: false });
+        }
+    };
 
     _handleKeydown = (event: KeyboardEvent) => {
         const { menuOpen } = this.state;
@@ -96,9 +106,10 @@ export class App extends Component<AppProps,AppState> {
     }
 }
 
-export const mapStateToProps = ({ theme }: State) => ({
+export const mapStateToProps = ({ theme, page }: State) => ({
     appMode: theme.appMode,
-    season: theme.season
+    season: theme.season,
+    currentPath: page.currentPath
 });
 
 export default withRouter(connect(mapStateToProps)(App));

@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
-import { MenuItemInterface } from '../../utils/constants/menuConstants';
 import { Link } from 'react-router-dom';
 
 interface MenuContainerProps {
@@ -66,16 +64,17 @@ export const StyledNav = styled.nav`
     text-transform: uppercase;
 `;
 
-export const HomeItem = styled.a`
+export const HomeItem = styled(Link)`
     font-size: ${({ theme }) => theme.typography.fontSize.small};
     cursor: pointer;
     color: ${({ theme }) => theme.colors.primary};
     transition: ${({ theme }) => `all ${theme.transitions.fadeAll}`};
+    text-decoration: none;
 
     ${({ theme }) => `
         ${theme.breakpoints.mobile} {
             line-height: 1.7;
-            font-size: ${theme.typography.fontSize.medium};
+            font-size: ${theme.typography.fontSize.small};
         }
         
         ${theme.breakpoints.desktop} {
@@ -85,11 +84,12 @@ export const HomeItem = styled.a`
     `}
 `;
 
-export const MenuItem = styled.a`
+export const MenuItem = styled(Link)`
     cursor: pointer;
     color: ${({ theme }) => theme.colors.onBackground};
     line-height: 1.5;
     transition: ${({ theme }) => `all ${theme.transitions.fadeAll}`};
+    padding: .5rem 0;
     
     ${({ theme }) => `
         ${theme.breakpoints.mobile} {
@@ -144,22 +144,3 @@ export const StyledHover = styled.span`
         transition: 0s;
     }
 `;
-
-
-export const NavigationMenu = (menuItems: MenuItemInterface[]) => (
-    <StyledNav>
-        <HomeItem>Home</HomeItem>
-
-        {menuItems.map((menuItem: MenuItemInterface, index: number) => {
-            return (
-                <Link to={menuItem.path}>
-                    <MenuItem key={index}>
-                        <StyledHover>
-                            {menuItem.title}
-                        </StyledHover>
-                    </MenuItem>
-                </Link>
-            )
-        })}
-    </StyledNav>
-);

@@ -10,4 +10,6 @@ export const ContentContainer = styled.div<ContentProps>`
     grid-row: 2;
     opacity: ${({ menuOpen }) => menuOpen ? '0' : '1'};
     transition: ${({theme}) => `all ${theme.transitions.fadeAll}`};
+    width: 100%;
+    height: 100%;
 `;

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { ContentContainer } from './styles';
 import MoodBoard from '../MoodBoard/MoodBoard';
-import {moodBoardImages} from '../../utils/constants/imageConstants';
+import { moodBoardImages } from '../../utils/constants/imageConstants';
 
 interface ContentProps {
     path: any;

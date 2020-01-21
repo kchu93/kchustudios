@@ -10,20 +10,24 @@ export interface MenuItemInterface {
 }
 
 export const menuItems: MenuItemInterface[] = [
-  {
-    title: "Photography",
-    path: "/photography"
-  },
-  {
-    title: "Mood Board",
-    path: "/mood-board"
-  },
-  {
-    title: "Audio",
-    path: "/audio"
-  },
-  {
-    title: "About",
-    path: "/audio"
-  }
+    {
+        title: "Photography",
+        path: "/photography"
+    },
+    {
+        title: "Mood Board",
+        path: "/mood-board"
+    },
+    {
+        title: 'Journal',
+        path: '/journal',
+    },
+    {
+        title: "Audio",
+        path: "/audio"
+    },
+    {
+        title: "About",
+        path: "/audio"
+    }
 ];
