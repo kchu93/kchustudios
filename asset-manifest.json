@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/kchustudios/build/static/css/main.067632ed.chunk.css",
-    "main.js": "/kchustudios/build/static/js/main.ea5944c0.chunk.js",
-    "main.js.map": "/kchustudios/build/static/js/main.ea5944c0.chunk.js.map",
-    "runtime-main.js": "/kchustudios/build/static/js/runtime-main.c8f129df.js",
-    "runtime-main.js.map": "/kchustudios/build/static/js/runtime-main.c8f129df.js.map",
-    "static/js/2.85e106a4.chunk.js": "/kchustudios/build/static/js/2.85e106a4.chunk.js",
-    "static/js/2.85e106a4.chunk.js.map": "/kchustudios/build/static/js/2.85e106a4.chunk.js.map",
-    "index.html": "/kchustudios/build/index.html",
-    "precache-manifest.8cd52a42ebce9a90554ae1127dedf02a.js": "/kchustudios/build/precache-manifest.8cd52a42ebce9a90554ae1127dedf02a.js",
-    "service-worker.js": "/kchustudios/build/service-worker.js",
-    "static/css/main.067632ed.chunk.css.map": "/kchustudios/build/static/css/main.067632ed.chunk.css.map",
-    "static/js/2.85e106a4.chunk.js.LICENSE": "/kchustudios/build/static/js/2.85e106a4.chunk.js.LICENSE"
+    "main.css": "/kchustudios/public/static/css/main.067632ed.chunk.css",
+    "main.js": "/kchustudios/public/static/js/main.ea5944c0.chunk.js",
+    "main.js.map": "/kchustudios/public/static/js/main.ea5944c0.chunk.js.map",
+    "runtime-main.js": "/kchustudios/public/static/js/runtime-main.3a49c558.js",
+    "runtime-main.js.map": "/kchustudios/public/static/js/runtime-main.3a49c558.js.map",
+    "static/js/2.32e9ee34.chunk.js": "/kchustudios/public/static/js/2.32e9ee34.chunk.js",
+    "static/js/2.32e9ee34.chunk.js.map": "/kchustudios/public/static/js/2.32e9ee34.chunk.js.map",
+    "index.html": "/kchustudios/public/index.html",
+    "precache-manifest.bf9c92e19f3c5d4bee1c94211b2873bc.js": "/kchustudios/public/precache-manifest.bf9c92e19f3c5d4bee1c94211b2873bc.js",
+    "service-worker.js": "/kchustudios/public/service-worker.js",
+    "static/css/main.067632ed.chunk.css.map": "/kchustudios/public/static/css/main.067632ed.chunk.css.map",
+    "static/js/2.32e9ee34.chunk.js.LICENSE": "/kchustudios/public/static/js/2.32e9ee34.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.c8f129df.js",
-    "static/js/2.85e106a4.chunk.js",
+    "static/js/runtime-main.3a49c558.js",
+    "static/js/2.32e9ee34.chunk.js",
     "static/css/main.067632ed.chunk.css",
     "static/js/main.ea5944c0.chunk.js"
   ]
