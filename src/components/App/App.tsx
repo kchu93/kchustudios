@@ -85,14 +85,16 @@ export class App extends Component<AppProps,AppState> {
         return (
             <ThemeProvider theme={theme}>
                 <StyledApp>
-                    <Menu
-                        appMode={appMode}
-                        toggleMenu={this.toggleMenu}
-                        toggleDarkMode={this.toggleDarkMode}
-                        menuOpen={menuOpen}
-                        currentSeason={season}
-                        updateSeason={this.updateSeason}
-                    />
+                    {menuOpen &&
+                        <Menu
+                            appMode={appMode}
+                            toggleMenu={this.toggleMenu}
+                            toggleDarkMode={this.toggleDarkMode}
+                            menuOpen={menuOpen}
+                            currentSeason={season}
+                            updateSeason={this.updateSeason}
+                        />
+                    }
                     <Header
                         appMode={appMode}
                         menuOpen={menuOpen}
